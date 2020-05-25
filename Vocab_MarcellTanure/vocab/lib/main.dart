@@ -199,6 +199,16 @@ class _ListDisplayState extends State<ListDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+      onPressed: () {
+        Navigator.push(
+          context, MaterialPageRoute(builder: (context) =>TestDisplay()),
+        );
+      },
+      label: Text('I\'m ready!'),
+      icon: Icon(Icons.thumb_up),
+      backgroundColor: Colors.green,
+    ),
       appBar: AppBar(
         title: Text('Vocab'),
       ),
@@ -219,12 +229,14 @@ class _ListDisplayState extends State<ListDisplay> {
                 'Vocab $index',
                 style: Theme.of(context).textTheme.headline5,
               ),
+              
             );
             
           }
           ),
           
         ),
+        
         
      ),
      
@@ -241,7 +253,61 @@ class _ListDisplayState extends State<ListDisplay> {
                   },
                 ),*/
 
+class TestDisplay extends StatefulWidget {
+  @override
+  _TestDisplayState createState() => _TestDisplayState();
+}
 
+class _TestDisplayState extends State<TestDisplay> {
+  List<String> listItems = [];
+  final TextEditingController tCtrl = new TextEditingController();
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+          context, MaterialPageRoute(builder: (context) =>Menu()),
+        );
+      },
+      child: Icon(Icons.menu),
+      backgroundColor: Colors.amber,
+    ),
+      appBar: AppBar(
+        title: Text('Vocab'),
+      ),
+      
+      body:Container(  
+        height: MediaQuery.of(context).size.height,
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
+          color: Colors.white,
+            child:  GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 2,
+          // Generate 100 widgets that display their index in the List.
+          children: List.generate(10, (index) {
+            return Center(
+              child: Text(
+                'Test $index',
+                style: Theme.of(context).textTheme.headline5,
+              ),
+              
+            );
+            
+          }
+          ),
+          
+        ),
+        
+        
+     ),
+     
+    ); 
+  }
+}
 
 
 
