@@ -1,4 +1,4 @@
-class Fruits{
+/*class Fruits{
   String name;
   String image;
 
@@ -24,4 +24,4 @@ class Albums{
     title = json['title'];
   }
   
-}
+}*/
