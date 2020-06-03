@@ -1,4 +1,4 @@
-/*class Fruits{
+class Fruits{
   String name;
   String image;
 
@@ -6,12 +6,11 @@
 
   Fruits.fromJson(Map<String, dynamic> json){
     name = json['name'];
-    image = json['thumbnailUrl'];
+    image = json['image'];
   }
-  
 }
 
-class Albums{
+/*class Albums{
   int id;
   String title;
   String thumbnailUrl;  
